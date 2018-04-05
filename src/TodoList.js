@@ -80,8 +80,8 @@ class TodoList extends Component {
     ));
 
     return (
-      <section className="todos">
-        <h4>Hello Todo</h4>
+      <div className="todos section">
+        <h4>Tasks</h4>
         <button className="remove-completed" onClick={()=>this.deleteCompletedItems()}>
           Remove Completed Items
         </button> 
@@ -96,7 +96,7 @@ class TodoList extends Component {
         <ul id="todo-list">
           {toDoList}
         </ul>
-      </section>
+      </div>
     );
   }
 }

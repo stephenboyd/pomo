@@ -13,6 +13,7 @@ class Todo extends Component {
                     className="todo-toggle"
                     type="checkbox"
                     checked={this.props.checked}
+                    readOnly
                 />
                 <div className="todo-text">{this.props.text}</div>
             </li>

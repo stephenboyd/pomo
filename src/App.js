@@ -11,8 +11,8 @@ class App extends Component {
           <h1 className="App-title">pomo</h1>
         </header>
         <div className="contents">
-          <TodoList />
           <Timer />
+          <TodoList />
         </div>
       </div>
     );
