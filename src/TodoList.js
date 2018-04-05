@@ -11,10 +11,17 @@ class TodoList extends Component {
   }
 
   componentDidMount() {
+    // Listen for changes from other open tabs
+    window.addEventListener('storage', e => {
+      if (e.key === 'toDoItems') {
+        const items = JSON.parse(e.newValue);
+        this.setState({ items });
+      }
+    });
     let items;
-    // Populate list from localStorage
+    // Populate the list from localStorage
     if (typeof localStorage === 'object' && typeof localStorage.toDoItems !== 'undefined') {
-      items = JSON.parse(localStorage.toDoItems);
+      items = JSON.parse(localStorage.getItem('toDoItems'));
     } else {
       items = [];
     }
