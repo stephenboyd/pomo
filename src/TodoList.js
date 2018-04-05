@@ -13,20 +13,19 @@ class TodoList extends Component {
   componentDidMount() {
     let items;
     // Populate list from localStorage
-    if (window.localStorage.toDoItems) {
-      items = JSON.parse(window.localStorage.toDoItems);
+    if (typeof localStorage === 'object' && typeof localStorage.toDoItems !== 'undefined') {
+      items = JSON.parse(localStorage.toDoItems);
     } else {
       items = [];
     }
-    console.log(items);
     this.setState({ items });
   }
 
   componentDidUpdate() {
     // Update localStorage whenever the state updates
-    window.localStorage.setItem('toDoItems', JSON.stringify(this.state.items));
-    console.log('storage', JSON.parse(window.localStorage.toDoItems));
-    console.log('state', this.state.items);
+    if (typeof localStorage === 'object') {
+      localStorage.setItem('toDoItems', JSON.stringify(this.state.items));
+    }
   }
 
   addItem() {
